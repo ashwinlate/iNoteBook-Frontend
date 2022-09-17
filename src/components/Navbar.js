@@ -4,8 +4,9 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Navbar = () => {
     let history = useHistory();
-    const handleLogout = ()=>{
+    const handleLogout = ( props )=>{
         localStorage.removeItem('token');
+        props.setAuth(false);
         history.push('/login');
     }
     let location = useLocation();
